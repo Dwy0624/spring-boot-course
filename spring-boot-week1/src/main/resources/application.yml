@@ -1,2 +1,27 @@
 server:
-  port: 8081
+  port: 8888
+
+spring:
+  application:
+    name: quickstart
+
+#自定义配置
+my:
+  mood:
+   today: 周五
+   content: 期待周末
+   author: "dwy"
+
+  feature:
+    helloSwitch: true
+    closeMsg: "该接口正在维护中"
+
+dwy:
+  sms:
+    ccp:
+      serverIp: app.cloopen.com
+      port: 8883
+      accountSid: 2c94811c9860a9c4019917c04a4a1e41
+      accountToken: 342724f0f4b1485899f6c37832f85ede
+      appId: 2c94811c9860a9c4019917c04bb01e48
+      templateId: 1

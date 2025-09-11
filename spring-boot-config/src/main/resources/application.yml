@@ -1,0 +1,21 @@
+server:
+  port: 8888
+
+team:
+  name: "Web2班"
+  leader: "dwy"
+  phone: "15851854935"
+  age: ${random.int(1,4)}
+
+aliyun-oss:
+  endpoint: "oss-cn-hangzhou.aliyuncs.com"
+  bucket: "ddwy0624"
+  access-key: "LTAI5tQJfsSYaQ4xANYLeMtA"
+  secret-key: "qlmUPqm0RuHml7SKqYIBU35GCFojvD"
+  dir: "img/"
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB

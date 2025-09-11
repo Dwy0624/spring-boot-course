@@ -5,47 +5,74 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.0</version>
+        <version>3.2.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>top.dwy</groupId>
     <artifactId>spring-boot-course</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <name>spring-boot-week1</name>
+    <description>spring-boot-week1</description>
     <packaging>pom</packaging>
-    <name>spring-boot-course</name>
-    <description>spring-boot-course</description>
-
-    <modules>
-        <module>spring-boot-week1</module>
-    </modules>
-
+    <url>http://maven.apache.org</url>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+        <!-- Spring Boot Web 核心依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- 测试依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-    </dependencies>
 
+        <!-- Lombok（用于日志注解 @Slf4j） -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 热部署 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+    <modules>
+        <module>spring-boot-week1</module>
+        <module>spring-boot-config</module>  <!-- 子模块目录名 -->
+    </modules>
     <build>
         <plugins>
+            <!-- Spring Boot 打包插件（必要，否则无法用 java -jar 运行） -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin><groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration><!-- 去除JVM警告 -->
+                    <argLine>-Xshare:off</argLine>
+                </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>

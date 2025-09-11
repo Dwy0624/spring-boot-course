@@ -19,6 +19,8 @@ target/
 *.iml
 *.ipr
 
+spring-boot-config/src/main/resources/aliyun-oss.properties
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
