@@ -1,4 +1,4 @@
-package top.dwy.boot.mp.Mapper;
+package top.dwy.boot.mp.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import jakarta.annotation.Resource;
@@ -40,8 +40,8 @@ class UserAccountMapperTest {
         userAccount.setNickname("dwy");
         userAccount.setEmail("1554642647@qq.com");
         userAccount.setPhone("1554642647");
-        userAccount.setStatus(true);
-        userAccount.setDeleted(false);
+        userAccount.setStatus(1);
+        userAccount.setDeleted(0);
         userAccount.setCreateTime(LocalDateTime.now());
         userAccount.setUpdateTime(LocalDateTime.now());
         int row = userAccountMapper.insert(userAccount);
