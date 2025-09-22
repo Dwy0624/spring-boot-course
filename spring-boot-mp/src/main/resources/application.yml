@@ -23,7 +23,7 @@ mybatis-plus:
   # Mapper XML ⽂件位置
   mapper-locations: classpath*:mapper/*.xml
   # 实体类别名包
-  type-aliases-package: top.mqxu.boot.mp.entity
+  type-aliases-package: top.dwy.boot.mp.entity
 # ⽇志配置
 logging:
   level:

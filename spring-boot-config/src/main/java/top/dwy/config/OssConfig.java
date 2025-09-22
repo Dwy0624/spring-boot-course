@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author alani
+ * @author dwy
  */
 @Data
 @ConfigurationProperties(prefix = "aliyun-oss")

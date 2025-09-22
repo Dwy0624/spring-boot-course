@@ -11,7 +11,7 @@ class MailServiceTest {
     @Test
     void sendSimpleMail() {
         Mail mail=new Mail();
-        mail.setTo("664903978@qq.com");
+        mail.setTo("1554642647@qq.com");
         mail.setSubject("测试邮件");
         mail.setContent("测试邮件内容");
         mailService.sendSimpleMail(mail);
@@ -19,8 +19,8 @@ class MailServiceTest {
     @Test
     void sendHtmlMail() {
         Mail mail=new Mail();
-        mail.setTo("664903978@qq.com");
-        mail.setSubject("测试邮件");
+        mail.setTo("1554642647@qq.com");
+        mail.setSubject("测试html邮件");
         mail.setContent("<html><body><h1>测试邮件内容</h1></body></html>");
         mailService.sendHtmlMail(mail);
     }

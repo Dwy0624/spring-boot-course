@@ -6,6 +6,9 @@ import jakarta.validation.ConstraintValidatorContext;
 
 import java.util.regex.Pattern;
 
+/**
+ * @author alani
+ */
 public class PhoneValidator implements ConstraintValidator<Phone, String> {
     private static final String REGEX_PHONE = "^1[3-9]\\d{9}$";
     @Override

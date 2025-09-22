@@ -42,4 +42,5 @@ public class Result<T> {
         result.setMsg(msg);
         return result;
     }
+
 }
