@@ -36,7 +36,6 @@
         <dependency>
             <groupId>com.cloopen</groupId>
             <artifactId>java-sms-sdk</artifactId>
-            <version>1.0.4</version>
             <exclusions>
                 <!-- 排除冲突的 commons-logging -->
                 <exclusion>
