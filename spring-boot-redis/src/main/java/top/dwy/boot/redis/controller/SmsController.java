@@ -10,15 +10,15 @@ import top.dwy.boot.redis.service.SmsService;
 /**
  * @author dwy
  */
+
 @RestController
 public class SmsController {
     @Resource
     private SmsService smsService;
 
-    @GetMapping("/sms")
+    @GetMapping("/sms/send")
     public Result<Boolean> sendSms(@RequestParam String phone){
-        smsService.sendSms(phone);
-        return Result.ok(true);
+        return Result.ok(smsService.sendSms(phone));
     }
 
 }

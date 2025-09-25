@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Configuration;
 // 3. Lombok 注解：自动生成 getter/setter（若不用 Lombok，需手动写）
 @Data
 public class CloopenConfig {
-    // 成员变量（与配置文件中的属性名对应，如 cloopen.server-ip）
     private String serverIp;
     private String port;
     private String accountSid;

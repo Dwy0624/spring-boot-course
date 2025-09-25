@@ -9,6 +9,7 @@ import top.dwy.boot.redis.result.Result;
 /**
  * @author alani
  */
+
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {

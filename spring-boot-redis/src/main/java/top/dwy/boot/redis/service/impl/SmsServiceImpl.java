@@ -2,7 +2,6 @@ package top.dwy.boot.redis.service.impl;
 
 import com.cloopen.rest.sdk.BodyType;
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
-import jakarta.annotation.Resource;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -24,20 +23,25 @@ import java.util.UUID;
 @Service
 @AllArgsConstructor
 public class SmsServiceImpl implements SmsService {
-    @Resource
     private final CloopenConfig cloopenConfig;
     private final RedisCache redisCache;
 
     @Override
-    public void sendSms(String phone) {
-        if (!CommonUtils.checkPhone( phone)){
-            throw new ServerException(ErrorCode.PARAM_ERROR);
+    public boolean sendSms(String phone) {
+        if (!CommonUtils.checkPhone(phone)) {
+            throw new ServerException(ErrorCode.PHONE_ERROR);
         }
 
         int code = CommonUtils.generateCode();
-        redisCache.set(RedisKeys.getSmsKey(phone),code,60);
+        redisCache.set(RedisKeys.getSmsKey(phone), code, 60);
         log.info("发送短信验证码：{}", code);
+        boolean flag = true;
+        flag = send(phone,code);
+        return flag;
+    }
 
+
+    private boolean send(String phone, int code) {
         String serverIp = cloopenConfig.getServerIp();
         String serverPort = cloopenConfig.getPort();
         String accountSid = cloopenConfig.getAccountSid();
@@ -45,7 +49,7 @@ public class SmsServiceImpl implements SmsService {
         String appId = cloopenConfig.getAppId();
         String templateId = cloopenConfig.getTemplateId();
 
-        // 修正SDK初始化
+        // 初始化SDK
         CCPRestSmsSDK sdk = new CCPRestSmsSDK();
         sdk.init(serverIp, serverPort);
         sdk.setAccount(accountSid, accountToken);
@@ -61,9 +65,7 @@ public class SmsServiceImpl implements SmsService {
                 UUID.randomUUID().toString()
         );
 
-        // 修正状态码判断（通常成功码是"000000"）
         if ("000000".equals(result.get("statusCode"))) {
-            @SuppressWarnings("unchecked")
             HashMap<String, Object> data = (HashMap<String, Object>) result.get("data");
             Set<String> keySet = data.keySet();
             for (String key : keySet) {
@@ -71,10 +73,11 @@ public class SmsServiceImpl implements SmsService {
                 log.info("{} = {}", key, object);
             }
         } else {
-            // 修正日志输出语法
             log.error("错误码={}, 错误信息= {}",
                     result.get("statusCode"),
                     result.get("statusMsg"));
+            return false;
         }
+        return true;
     }
 }

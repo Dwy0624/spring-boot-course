@@ -17,9 +17,9 @@ import java.nio.charset.StandardCharsets;
  * @Author: alani
  * @Date: 2025/9/24
  */
+
 @Configuration
 public class RedisConfig {
-
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
@@ -60,5 +60,4 @@ public class RedisConfig {
             return JSON.parseObject(str, clazz);
         }
     }
-
 }

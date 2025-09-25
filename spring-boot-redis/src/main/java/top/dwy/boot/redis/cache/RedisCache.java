@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
  * @Author: alani
  * @Date: 2025/9/24
  */
+
 @Component
 public class RedisCache {
     /**
@@ -32,7 +33,7 @@ public class RedisCache {
      * 不设置过期时长
      */
     public final static long NOT_EXPIRE = -1L;
-    
+
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 

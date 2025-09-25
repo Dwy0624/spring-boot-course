@@ -6,6 +6,7 @@ import top.dwy.boot.redis.enums.ErrorCode;
 /**
  * @Author: alani
  */
+
 @Data
 public class Result<T> {
     private int code = 0;
@@ -25,11 +26,11 @@ public class Result<T> {
     }
 
     public static <T> Result<T> error() {
-        return error(ErrorCode.SERVER_ERROR);
+        return error(ErrorCode.PHONE_ERROR);
     }
 
     public static <T> Result<T> error(String msg) {
-        return error(ErrorCode.SERVER_ERROR.getCode(), msg);
+        return error(ErrorCode.PHONE_ERROR.getCode(), msg);
     }
 
     public static <T> Result<T> error(ErrorCode errorCode) {
