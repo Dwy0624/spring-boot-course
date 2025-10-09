@@ -1,0 +1,13 @@
+package top.dwy.boot.schedule.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import top.dwy.boot.schedule.entity.UserAccount;
+
+/**
+ * @author alani
+ */
+@Mapper
+public interface UserAccountMapper extends BaseMapper<UserAccount> {
+
+}
