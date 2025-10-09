@@ -9,11 +9,9 @@ import top.dwy.boot.redis.result.Result;
 /**
  * @author alani
  */
-
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
-
     /**
      * 处理业务异常
      *
@@ -24,7 +22,6 @@ public class GlobalExceptionHandler {
     public Result<String> handleBusinessException(ServerException e) {
         return Result.error(e.getCode(), e.getMsg());
     }
-
     /**
      * 处理其他异常
      *

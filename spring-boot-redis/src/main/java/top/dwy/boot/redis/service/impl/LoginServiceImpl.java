@@ -40,13 +40,15 @@ public class LoginServiceImpl implements LoginService {
 
         // 3. 从 Redis 获取验证码（关键调整）
         String redisKey = RedisKeys.getSmsKey(phone);
-        Object redisValue = redisCache.get(redisKey); // 先获取 Object 类型
+        Object redisValue = redisCache.get(redisKey);
+        // 先获取 Object 类型
 
         // 4. 检查 Redis 中是否存在验证码（先判断 null，再转字符串）
         if (redisValue == null) {
             throw new ServerException("验证码已过期或不存在");
         }
-        String redisCode = redisValue.toString(); // 确认非 null 后再转字符串
+        String redisCode = redisValue.toString();
+        // 确认非 null 后再转字符串
 
         // 5. 校验验证码是否正确
         if (!inputCode.equals(redisCode)) {

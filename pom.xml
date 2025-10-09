@@ -25,6 +25,7 @@
         <datafaker.version>1.5.0</datafaker.version>
         <fastjson2.version>2.0.53</fastjson2.version>
         <java-sms-sdk.version>1.0.4</java-sms-sdk.version>
+        <jjwt.version>0.11.5</jjwt.version>
     </properties>
 
     <dependencies>
@@ -90,6 +91,22 @@
             <groupId>com.cloopen</groupId>
             <artifactId>java-sms-sdk</artifactId>
             <version>${java-sms-sdk.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>${jjwt.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
