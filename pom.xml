@@ -26,6 +26,7 @@
         <fastjson2.version>2.0.53</fastjson2.version>
         <java-sms-sdk.version>1.0.4</java-sms-sdk.version>
         <jjwt.version>0.11.5</jjwt.version>
+        <okhttp.version>4.12.0</okhttp.version>
     </properties>
 
     <dependencies>
@@ -108,6 +109,12 @@
                 <artifactId>jjwt-jackson</artifactId>
                 <version>${jjwt.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -117,7 +124,9 @@
         <module>spring-boot-mp</module>
         <module>spring-boot-exception</module>
         <module>spring-boot-sandbox</module>
-        <module>spring-boot-redis</module>  <!-- 子模块目录名 -->
+        <module>spring-boot-redis</module>
+        <module>spring-boot-schedule</module>
+        <module>spring-boot-websocket</module>  <!-- 子模块目录名 -->
     </modules>
     <build>
         <plugins>

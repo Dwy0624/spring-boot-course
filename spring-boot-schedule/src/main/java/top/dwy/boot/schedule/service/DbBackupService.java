@@ -22,15 +22,13 @@ import java.io.IOException;
 public class DbBackupService {
     private final DbConfig dbConfig;
 
-    // 1. 手动指定 mysqldump.exe 的完整路径（替换为你本地的路径！）
-    // 参考路径：C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqldump.exe
     private static final String MYSQL_DUMP_PATH = "C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\mysqldump.exe";
 
 
     /**
-     * 每日凌晨2:00执行备份（测试用每10秒执行）
+     * 每日凌晨2:00执行备份（测试用每15秒执行）
      */
-    @Scheduled(cron = "*/10 * * * * ?")
+    @Scheduled(cron = "*/15 * * * * ?")
     public void backupWithHutool() {
         try {
             // 2. 读取配置+构建参数（包含端口）

@@ -5,3 +5,4 @@
 ## spring-boot-exception 统一异常处理模块
 ## spring-boot-redis Redis 集成模块
 ## spring-boot-filter-Redis 过滤器与拦截器模块
+## spring-boot-schedule 定时任务模块
